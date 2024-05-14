@@ -49,7 +49,9 @@
         .card {
           gap: 12px;
           width: 100%;
+          display: flex;
           border-radius: 8px;
+          flex-direction: column;
           border: 1px solid #d2d2d2;
           transition: all 0.3s ease-in-out;
 
@@ -58,7 +60,6 @@
             padding: 0 12px;
             font-weight: 600;
             padding-top: 12px;
-            margin-bottom: 10px;
             align-items: center;
             justify-content: space-between;
 
@@ -68,26 +69,33 @@
           }
 
           .body {
-            gap: 4px;
+            flex: 1;
             display: flex;
-            color: #fff;
-            padding: 10px 0;
-            align-items: center;
             flex-direction: column;
-            justify-content: center;
-            background-color: getColor(primary, 0.1);
 
-            span {
-              font-size: 10px;
-              font-weight: 600;
-              color: getColor(text);
+            .mana-card {
+              gap: 4px;
+              display: flex;
+              color: #fff;
+              padding: 10px 0;
+              align-items: center;
+              flex-direction: column;
+              justify-content: center;
+              background-color: getColor(primary, 0.1);
+
+              span {
+                font-size: 10px;
+                font-weight: 600;
+                color: getColor(text);
+              }
             }
-          }
 
-          footer {
-            font-size: 10px;
-            margin-top: 10px;
-            padding: 0 12px 12px;
+            .description {
+              flex: 1;
+              font-size: 12px;
+              margin-top: 10px;
+              padding: 0 12px 12px;
+            }
           }
 
           &:hover {
@@ -146,18 +154,20 @@
             }
 
             .body {
-              gap: 6px;
-              padding: 14px 0;
+              .mana-card {
+                gap: 6px;
+                padding: 14px 0;
 
-              span {
-                font-size: 11px;
+                span {
+                  font-size: 11px;
+                }
               }
-            }
 
-            footer {
-              font-size: 14px;
-              margin-top: 12px;
-              padding: 0 12px 12px;
+              .description {
+                font-size: 14px;
+                margin-top: 12px;
+                padding: 0 12px 12px;
+              }
             }
           }
         }
@@ -168,11 +178,8 @@
 
 @media only screen and (min-width: 1024px) {
   :host {
-
     .list-cards {
-
       .list {
-
         .pack-box {
           .card {
             flex: 0 0 calc(33% - 12px);

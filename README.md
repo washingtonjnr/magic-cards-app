@@ -1,6 +1,34 @@
-# App
+[TYPESCRIPT__BADGE]: https://img.shields.io/badge/typescript-D4FAFF?style=for-the-badge&logo=typescript
+[ANGULAR__BADGE]: https://img.shields.io/badge/Angular-red?style=for-the-badge&logo=angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+<h1 align="center" style="font-weight: bold;">[Magic Packs] in Angular 💻</h1>
+
+![angular][ANGULAR__BADGE]
+![typescript][TYPESCRIPT__BADGE]
+
+<p align="center">
+    <img src="./.github/home.png" alt="Image Example" width="300px">
+    <img src="./.github/loading.png" alt="Image Example" width="300px">
+    <img src="./.github/pack.png" alt="Image Example" width="300px">
+</p>
+
+<h2 id="started">📌 About</h2>
+
+Developed in Angular, Magic Cards is a project where the user can open Magic cards from a specific collection.
+
+<h2 id="started">🚀 Getting started</h2>
+
+Here you describe how to run your project locally
+
+<h3>Prerequisites</h3>
+
+Here you list all prerequisites necessary for running your project. For example:
+
+- [NodeJS](https://github.com/)
+- [Git 2](https://github.com)
+- [Angular CLI](https://angular.io/cli)
+
+
 
 ## Development server
 

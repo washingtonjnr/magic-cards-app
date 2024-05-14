@@ -32,13 +32,16 @@
           </header>
 
           <div class="body">
-            <span class="mana">{{ card.manaCost }}</span>
-            <img [src]="card.imageUrl" alt="card image" srcset="">
-          </div>
+            <div class="mana-card">
+              <span class="mana">{{ card.manaCost }}</span>
 
-          <footer>
-            {{ !card.originalText ? "[No description]" : card.originalText }}
-          </footer>
+              <img [src]="card.imageUrl" alt="card image" srcset="">
+            </div>
+
+            <div class="description">
+              {{ !card.originalText ? "[No description]" : card.originalText }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
