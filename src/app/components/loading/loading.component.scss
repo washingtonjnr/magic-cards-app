@@ -18,32 +18,32 @@
     display: block;
     position: absolute;
     border-radius: 50%;
-    // border: 1px solid gray;
+    border: 1px solid gray;
 
     &.dot-yellow {
-      top: 10px;
-      transform: translate(-50%);
+      top: 50%;
       background-color: #f0f1ea;
+      transform: translate(-50%, -170%);
     }
     &.dot-blue {
-      top: 13px;
+      top: 45%;
       background-color: #0e45a0;
-      transform: translate(120%, 50%);
+      transform: translate(65%, -50%);
     }
     &.dot-black {
-      top: 22px;
+      top: 70%;
       background-color: #000000;
-      transform: translate(60%, 50%);
+      transform: translate(30%, -50%);
     }
     &.dot-red {
-      top: 22px;
+      top: 70%;
       background-color: #9d0601;
-      transform: translate(-160%, 50%);
+      transform: translate(-130%, -50%);
     }
     &.dot-green {
-      top: 13px;
+      top: 45%;
       background-color: #0bac33;
-      transform: translate(-220%, 50%);
+      transform: translate(-165%, -50%);
     }
   }
 }

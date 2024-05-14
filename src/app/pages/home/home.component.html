@@ -38,12 +38,41 @@
     <app-loading *ngIf="isLoading"></app-loading>
 
     <!-- Empty -->
-    <img class="empty-img"  *ngIf="!isLoading && packs.length < 1" src="/assets/images/empty-state.svg" alt="empty"/>
+    <div *ngIf="!isLoading && packs.length < 1" class="empty">
+      <img class="empty-img" src="/assets/images/empty-state.svg" alt="empty"/>
+
+      <span>Packs not found</span>
+    </div>
 
     <!-- List -->
     <div class="list" *ngIf="!isLoading">
-      <div *ngFor="let pack of packs" class="card" role="button" (click)="openPack(pack.code)">
-        {{pack.name}}
+      <div
+        class="card"
+        *ngFor="let pack of packs | paginate: { itemsPerPage: pageSize, currentPage: page }"
+      >
+        <header>
+          <span class="name">{{pack.name}}</span>
+
+          <small class="type">{{pack.type}}</small>
+        </header>
+
+        <div class="body">
+          <span>{{pack.block}}</span>
+          <small class="date">{{formatDate(pack.releaseDate)}}</small>
+        </div>
+
+        <app-button variants="outline-primary" (click)="openPack(pack.code)">
+          Open pack
+        </app-button>
+      </div>
+
+      <div class="pagination">
+        <pagination-controls
+          *ngIf="packs.length > 9" (pageChange)="page = $event"
+          previousLabel="👈🏽"
+          nextLabel="👉🏽"
+        >
+        </pagination-controls>
       </div>
     </div>
   </section>

@@ -9,7 +9,7 @@
 
   <section *ngIf="!isLoading" class="list-cards">
     <app-button (click)="goToSearch()">
-      Search more packs
+      Open more packs
     </app-button>
 
     <!-- Empty -->
@@ -21,10 +21,25 @@
 
     <!-- List -->
     <div *ngIf="cards.length > 0" class="list">
-      <h1 class="list-title">List Cards</h1>
+      <h1 class="list-title">Your pack</h1>
 
-      <div *ngFor="let card of cards" class="card">
-        {{card.name}}
+      <div class="pack-box">
+        <div *ngFor="let card of cards" class="card">
+          <header>
+            <span class="name">{{card.name}}</span>
+
+            <img *ngIf="getImagePath(card.colorIdentity[0]) != null" [src]="getImagePath(card.colorIdentity[0])" alt="card type" srcset="">
+          </header>
+
+          <div class="body">
+            <span class="mana">{{ card.manaCost }}</span>
+            <img [src]="card.imageUrl" alt="card image" srcset="">
+          </div>
+
+          <footer *ngIf="card.originalText">
+            {{card.originalText}}
+          </footer>
+        </div>
       </div>
     </div>
   </section>

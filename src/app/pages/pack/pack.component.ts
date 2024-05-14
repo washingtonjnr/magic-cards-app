@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-// Compónents
+// Components
 import { ButtonComponent } from '../../components/button/button.component';
 import { LoadingComponent } from '../../components/loading/loading.component';
 import { PageLayoutComponent } from '../../components/page-layout/page-layout.component';
@@ -31,6 +31,12 @@ export class PackComponent {
   public cards:CardResponse[] = [];
   // Page state
   public isLoading: boolean = false;
+  private imagePaths = {
+    'B': '../../../assets/images/card-types/B.png',
+    'G': '../../../assets/images/card-types/G.png',
+    'R': '../../../assets/images/card-types/R.png',
+    'U': '../../../assets/images/card-types/U.png',
+  }
 
   constructor(
     private router: Router,
@@ -54,6 +60,8 @@ export class PackComponent {
     this.magicService.findAllCards(id, []).subscribe({
       error: () => this.toastService.error('Error when listing packs!'),
       next: (cards) => {
+        console.log(cards);
+
         this.cards = cards;
 
         this.isLoading = false;
@@ -61,7 +69,12 @@ export class PackComponent {
     });
   }
 
+  // Utils
   public goToSearch() {
     this.router.navigate(['/']);
+  }
+
+  public getImagePath(cardType: string): string {
+    return this.imagePaths[cardType as keyof typeof this.imagePaths];
   }
 }

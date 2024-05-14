@@ -4,7 +4,7 @@ import { LoadingComponent } from "../loading/loading.component";
 import { CommonModule } from '@angular/common';
 
 type ButtonTypes = "submit" | "button" | "reset"
-type ButtonVariants = "danger" | "ghost" | "primary"
+type ButtonVariants = "danger" | "ghost" | "primary" | "outline-primary"
 
 @Component({
   selector: 'app-button',

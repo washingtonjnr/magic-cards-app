@@ -1,8 +1,11 @@
 export type CardResponse = {
   id: string;
   name: string;
-  originalText: string;
+  rarity: string;
+  flavor: string;
   imageUrl: string;
-  colorIdentity: string;
+  manaCost: string;
+  originalText: string;
   types: string[];
+  colorIdentity: string[];
 }

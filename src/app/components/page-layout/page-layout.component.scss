@@ -22,16 +22,10 @@ main {
 @media only screen and (min-width: 1024px)  {
   main {
     content {
-      padding: 40px 48px;
-    }
-  }
-}
-
-@media only screen and (min-width: 1440px)  {
-  main {
-    content {
-      max-width: 1440px;
+      width: 100%;
       margin: 0 auto;
+      max-width: 940px;
+      padding: 40px 48px;
     }
   }
 }

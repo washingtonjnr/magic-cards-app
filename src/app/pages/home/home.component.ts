@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 // Components
 import { InputComponent } from '../../components/input/input.component';
@@ -9,12 +10,14 @@ import { LoadingComponent } from '../../components/loading/loading.component';
 import { PageLayoutComponent } from '../../components/page-layout/page-layout.component';
 // Packages
 import { ToastrService } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+// Pipes
+import { FormateDatePipe } from '../../pipes/formatDate.pipe';
 // Services
 import { MagicService } from '../../services/magic/magic.service';
 // Types
 import { PackResponse } from '../../types/pack-response.type';
 import { SelectOption } from '../../types/select-option.types';
-import { CommonModule } from '@angular/common';
 
 type SearchForm = {
   name: FormControl,
@@ -27,6 +30,8 @@ type SearchForm = {
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    // Packages
+    NgxPaginationModule,
     // Components
     InputComponent,
     ButtonComponent,
@@ -40,7 +45,6 @@ type SearchForm = {
 export class HomeComponent {
   public packs:PackResponse[] = [];
   // Filters
-  public page: number = 1;
   public types: SelectOption[] = [
     { label: 'Amonkhet', value: 'amonkhet' },
     { label: 'Ixalan', value: 'ixalan' },
@@ -49,6 +53,8 @@ export class HomeComponent {
     { label: 'Onslaught', value: 'onslaught' },
   ];
   // Page state
+  public page: number = 1;
+  public pageSize: number = 10;
   public isLoading: boolean = false;
   public isLoadingTypes: boolean = false;
   //
@@ -56,12 +62,14 @@ export class HomeComponent {
 
   constructor(
     private router: Router,
+    // Services
     private magicService: MagicService,
-    private toastService: ToastrService
+    private toastService: ToastrService,
+
   ) {
     this.searchForm = new FormGroup({
-      name: new FormControl(null, [Validators.minLength(3)]),
-      type: new FormControl('onslaught', [Validators.required])
+      name: new FormControl('promo', [Validators.minLength(3)]),
+      type: new FormControl('amonkhet', [Validators.required])
     });
   }
 
@@ -87,12 +95,18 @@ export class HomeComponent {
     this.isLoading = true;
 
     this.magicService.findAll({
-      page: this.page,
+      // page: `${this.page}`,
+      // pageSize: `${this.pageSize}`,
       text: this.searchForm.value.name,
       type: this.searchForm.value.type,
     }).subscribe({
-      error: () => this.toastService.error('Error when listing packs!'),
+      error: () => {
+        this.toastService.error('Error when listing packs!');
+
+        this.isLoading = false;
+      },
       next: ({ sets }) => {
+        console.log(sets)
         this.packs = sets;
 
         this.isLoading = false;
@@ -115,5 +129,10 @@ export class HomeComponent {
   public openPack(id: string){
     console.log(id);
     this.router.navigate([`/pack/${id}`]);
+  }
+
+  // Utils
+  public formatDate(date: string | Date): string {
+    return new FormateDatePipe().transform(date);
   }
 }

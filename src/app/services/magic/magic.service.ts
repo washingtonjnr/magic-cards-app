@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // Packages
-import { Observable, Subject, catchError, of, switchMap, takeUntil, toArray } from 'rxjs';
+import { Observable, Subject, catchError, of, switchMap, takeUntil } from 'rxjs';
 // Service
 import { ApiService } from '../api.service';
 // Types
@@ -12,7 +12,8 @@ import { TypesResponse } from '../../types/types-response.types';
 type FindAllParams = {
   text?: string;
   type: string;
-  page: number;
+  // page: string;
+  // pageSize: string;
 }
 
 type FindAllResponse = {
@@ -39,10 +40,20 @@ export class MagicService extends ApiService {
   }
 
   // GET PACKS
-  findAll({ page, type, text }: FindAllParams) {
-    const name = text ? `${text}|${type}` : type;
+  findAll({
+    // page,
+    // pageSize,
+    type,
+    text,
+  }: FindAllParams) {
+    const name = text ? `${type}|${text}` : type;
 
-    return super.get<FindAllResponse>("/sets", { name });
+    // Obs: The API does not total_items, so i get all and then separate packs per page using ngx-pagination
+    return super.get<FindAllResponse>("/sets", {
+      name,
+      // page,
+      // pageSize,
+    });
   }
 
   // GET CARDS - PACK OPENING
