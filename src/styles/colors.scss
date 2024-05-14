@@ -1,0 +1,65 @@
+$colors: (
+  primary: (
+    light: #c0795e,
+    base: #B25A36,
+    dark: #af4217,
+  ),
+  secondary: (
+    light: #76bae2,
+    base: #4DABE1,
+    dark: #1688ca,
+  ),
+  mono: (
+    light: #f9f9f9,
+    base: #f1f1f1,
+    dark-grey: #d3d3d3,
+    dark: #4a4a4a,
+  ),
+  text: (
+    light: #f1f1f1,
+    light-gray: #d1d1d1,
+    base: #4a4a4a,
+    dark-gray: #2e2e2e,
+    dark: #000000,
+  ),
+  status: (
+    info: #2888c9,
+    error: #ca172f,
+    success: #268f65,
+    warning: #eea32b,
+  ),
+  black: #000000,
+  white: #ffffff,
+);
+
+$errorColor: #bbff00;
+
+@function getColor($name, $variant: 1, $alpha: 1) {
+  $finalColor: $errorColor;
+
+  @if map-has-key($colors, $name) {
+    $finalColor: map-get($colors, $name);
+
+    @if type-of($variant) != number {
+      @if map-has-key($finalColor, $variant) {
+        $finalColor: map-get($finalColor, $variant);
+      } @else {
+        $finalColor: $errorColor;
+      }
+    } @else {
+      @if type-of($finalColor) != color {
+        $finalColor: map-get($finalColor, base);
+      }
+    }
+    @if type-of($variant) == number {
+      $finalColor: rgba($finalColor, $variant);
+    } @else {
+      $finalColor: rgba($finalColor, $alpha);
+    }
+  }
+  @if type-of($finalColor) != color {
+    $finalColor: $errorColor;
+  }
+
+  @return $finalColor;
+}

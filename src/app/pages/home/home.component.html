@@ -1,0 +1,50 @@
+<app-page-layout>
+  <section class="search-box">
+    <h1 class="title-form">Search pack</h1>
+
+    <form [formGroup]="searchForm" (submit)="submitForm()">
+      <app-input
+        formControlName="name"
+        inputName="name"
+        type="text"
+        label="Name"
+        placeholder="Provice your name"
+      >
+      </app-input>
+
+      <app-select
+        formControlName="type"
+        inputName="type"
+        type="text"
+        label="Type"
+        placeholder="Select type"
+        [options]="types"
+        [initialValue]="types[types.length - 1].value"
+      >
+      </app-select>
+
+      <app-button
+        [isDisabled]="isLoading"
+      >
+        Search
+      </app-button>
+    </form>
+  </section>
+
+  <section class="list-packs">
+    <h2 class="list-title">List packs</h2>
+
+    <!-- Loading -->
+    <app-loading *ngIf="isLoading"></app-loading>
+
+    <!-- Empty -->
+    <img class="empty-img"  *ngIf="!isLoading && packs.length < 1" src="/assets/images/empty-state.svg" alt="empty"/>
+
+    <!-- List -->
+    <div class="list" *ngIf="!isLoading">
+      <div *ngFor="let pack of packs" class="card" role="button" (click)="openPack(pack.code)">
+        {{pack.name}}
+      </div>
+    </div>
+  </section>
+</app-page-layout>

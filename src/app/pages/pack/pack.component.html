@@ -1,0 +1,31 @@
+<app-page-layout>
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading-list">
+    <app-loading></app-loading>
+
+    <p>Opening your pack!</p>
+    <span>Wait...</span>
+  </div>
+
+  <section *ngIf="!isLoading" class="list-cards">
+    <app-button (click)="goToSearch()">
+      Search more packs
+    </app-button>
+
+    <!-- Empty -->
+    <div *ngIf="cards.length < 1" class="empty">
+      <img class="empty-img" src="/assets/images/empty-state.svg" alt="empty"/>
+
+      <span>Cards not found</span>
+    </div>
+
+    <!-- List -->
+    <div *ngIf="cards.length > 0" class="list">
+      <h1 class="list-title">List Cards</h1>
+
+      <div *ngFor="let card of cards" class="card">
+        {{card.name}}
+      </div>
+    </div>
+  </section>
+</app-page-layout>

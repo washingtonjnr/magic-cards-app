@@ -1,0 +1,87 @@
+@import "../../../styles/colors.scss";
+
+.select-wrapper {
+  font-size: 16px;
+  text-align: start;
+  position: relative;
+
+  label {
+    top: -5px;
+    left: 12px;
+    z-index: 1;
+    font-size: 11px;
+    position: absolute;
+    padding: 0 9px 0 5px;
+    color: getColor(text, light-gray);
+    background-color: getColor(mono, light);
+  }
+
+  .select-content {
+    width: 100%;
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid #dedede;
+
+    .icon {
+      padding: 12px;
+      border-radius: 0 8px 8px 0;
+
+      img {
+        height: 20px;
+      }
+    }
+
+    select {
+      width: 100%;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      padding: 12px 0 12px 12px;
+      background-color: getColor(mono, light);
+
+      option {
+        padding: 20px;
+        cursor: pointer;
+        color: getColor(text, dark);
+        transition: all 0.2s ease-in-out;
+
+        &.disabled-color {
+          color: #999;
+          background-color: #f1f1f1 !important;
+        }
+
+        &:checked {
+          background-color: getColor(secondary, dark);
+        }
+
+        &:hover {
+          background-color: getColor(secondary, 0.4) !important;
+        }
+      }
+    }
+
+    .loading-container {
+      right: -8px;
+      transform: scale(0.6);
+      position: absolute !important;
+      background-color: getColor(mono, light);
+    }
+  }
+
+  &.select-error {
+
+    label {
+      color: getColor(status, error);
+    }
+
+    .select-content {
+      border-color: getColor(status, error);
+    }
+  }
+
+  .error {
+    font-size: 10px;
+    margin-top: 4px;
+    color: getColor(status, error);
+  }
+}

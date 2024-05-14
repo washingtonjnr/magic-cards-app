@@ -1,0 +1,46 @@
+@import "../../../styles/colors.scss";
+
+.input-wrapper {
+  font-size: 16px;
+  text-align: start;
+  position: relative;
+
+  label {
+    top: -5px;
+    left: 12px;
+    font-size: 11px;
+    position: absolute;
+    padding: 0 9px 0 5px;
+    color: getColor(text, light-gray);
+    background-color: getColor(mono, light);
+  }
+
+  .input-content {
+    width: 100%;
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid #dedede;
+
+    .icon {
+      padding: 12px;
+      border-radius: 0 8px 8px 0;
+
+      img {
+        height: 20px;
+      }
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 12px 0 12px 12px;
+      border-radius: 8px 0 0 8px;
+      background-color: getColor(mono, light);
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+  }
+}

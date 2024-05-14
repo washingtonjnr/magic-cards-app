@@ -1,0 +1,9 @@
+<button [disabled]="isDisabled" class="button {{ variants }}">
+  <div *ngIf="isLoading">
+    <app-loading></app-loading>
+  </div>
+
+  <div *ngIf="!isLoading">
+    <ng-content></ng-content>
+  </div>
+</button>

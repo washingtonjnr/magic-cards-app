@@ -1,0 +1,28 @@
+<div
+  class="select-wrapper"
+>
+  <label [for]="inputName">{{ label }}</label>
+
+  <div class="select-content">
+    <select
+      [disabled]="isLoading"
+      (input)="onInput($event)"
+      [name]="inputName"
+      [(ngModel)]="initialValue"
+    >
+      <option value="" style="color: #999; font-size: 10px;" disabled="disabled" selected="true">{{ placeholder }}</option>
+
+      <option *ngFor="let option of options" value="{{option.value}}">
+        {{option.label}}
+      </option>
+    </select>
+
+    <div class="loading-container" *ngIf="isLoading">
+      <app-loading ></app-loading>
+    </div>
+  </div>
+
+  <!-- <div class="error" *ngIf="msgError">
+    {{msgError}}
+  </div> -->
+</div>

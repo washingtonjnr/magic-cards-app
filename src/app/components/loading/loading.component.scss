@@ -1,0 +1,49 @@
+.loading {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  position: relative;
+  animation: spinner 1.5s linear infinite;
+
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .dot {
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    // border: 1px solid gray;
+
+    &.dot-yellow {
+      top: 10px;
+      transform: translate(-50%);
+      background-color: #f0f1ea;
+    }
+    &.dot-blue {
+      top: 13px;
+      background-color: #0e45a0;
+      transform: translate(120%, 50%);
+    }
+    &.dot-black {
+      top: 22px;
+      background-color: #000000;
+      transform: translate(60%, 50%);
+    }
+    &.dot-red {
+      top: 22px;
+      background-color: #9d0601;
+      transform: translate(-160%, 50%);
+    }
+    &.dot-green {
+      top: 13px;
+      background-color: #0bac33;
+      transform: translate(-220%, 50%);
+    }
+  }
+}
