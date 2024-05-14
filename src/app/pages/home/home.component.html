@@ -51,19 +51,22 @@
         *ngFor="let pack of packs | paginate: { itemsPerPage: pageSize, currentPage: page }"
       >
         <header>
-          <span class="name">{{pack.name}}</span>
+          <span class="name">{{ pack.name }}</span>
 
-          <small class="type">{{pack.type}}</small>
+          <small class="type">{{ pack.type }}</small>
         </header>
 
         <div class="body">
-          <span>{{pack.block}}</span>
-          <small class="date">{{formatDate(pack.releaseDate)}}</small>
-        </div>
+          <div class="block-date">
+            <span>{{ !pack.block ? '[No block]' : pack.block }}</span>
 
-        <app-button variants="outline-primary" (click)="openPack(pack.code)">
-          Open pack
-        </app-button>
+            <small class="date">{{formatDate(pack.releaseDate)}}</small>
+          </div>
+
+          <app-button variants="outline-primary" (click)="openPack(pack.code)">
+            Open pack
+          </app-button>
+        </div>
       </div>
 
       <div class="pagination">

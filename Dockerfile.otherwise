@@ -1,0 +1,25 @@
+FROM node:20
+
+# Creating and assigment to the WORKDIR folder
+WORKDIR /app
+
+# Copying project and saving in in /app
+COPY . .
+
+# Installing depedencies
+RUN npm install
+RUN npm install @angular/cli -g
+
+# To expose port 4200
+EXPOSE 4200
+
+# Starting the application execution
+CMD ["ng", "serve", "--host", "0.0.0.0"]
+
+
+# RUN:
+  ## BUILD IMAGE: `docker build -t magic-packs-frontend-docker .`
+
+  ## RUN IMAGE: `docker run -p 4200:4200 magic-packs-frontend-docker`
+
+

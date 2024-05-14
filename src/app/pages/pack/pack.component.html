@@ -36,8 +36,8 @@
             <img [src]="card.imageUrl" alt="card image" srcset="">
           </div>
 
-          <footer *ngIf="card.originalText">
-            {{card.originalText}}
+          <footer>
+            {{ !card.originalText ? "[No description]" : card.originalText }}
           </footer>
         </div>
       </div>

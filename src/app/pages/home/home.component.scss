@@ -49,9 +49,22 @@
       .card {
         width: 100%;
         padding: 12px;
+        display: flex;
         border-radius: 8px;
+        flex-direction: column;
         border: 1px solid #d2d2d2;
+        justify-content: space-between;
         transition: all 0.3s ease-in-out;
+        animation: fadein .3s ease-in-out;
+
+        @keyframes fadein {
+          from {
+            opacity: .6;
+          }
+          to {
+            opacity: 1;
+          }
+        }
 
         header {
           display: flex;
@@ -74,22 +87,27 @@
         }
 
         .body {
-          gap: 12px;
           display: flex;
-          color: #fff;
-          margin: 10px 0;
-          padding: 30px 0;
-          align-items: center;
           flex-direction: column;
-          justify-content: center;
-          background-color: getColor(primary);
 
-          span {
-            font-weight: 600;
-          }
+          .block-date {
+            gap: 12px;
+            display: flex;
+            color: #fff;
+            margin: 10px 0;
+            padding: 30px 0;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-color: getColor(primary);
 
-          small {
-            font-size: 8px;
+            span {
+              font-weight: 600;
+            }
+
+            small {
+              font-size: 8px;
+            }
           }
         }
 
@@ -142,18 +160,6 @@
           padding: 12px;
           border-radius: 8px;
           flex: 0 0 calc(50% - 36px);
-          border: 1px solid #d2d2d2;
-          transition: all 0.3s ease-in-out;
-          animation: fadein .3s ease-in-out;
-
-          @keyframes fadein {
-            from {
-              opacity: .6;
-            }
-            to {
-              opacity: 1;
-            }
-          }
 
           header {
             span {
@@ -168,11 +174,13 @@
           }
 
           .body {
-            gap: 10px;
-            padding: 30px 0;
+            .block-date {
+              gap: 10px;
+              padding: 30px 0;
 
-            span {
-              font-weight: 600;
+              span {
+                font-weight: 600;
+              }
             }
           }
         }

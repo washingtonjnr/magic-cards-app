@@ -58,10 +58,12 @@ export class PackComponent {
     this.isLoading = true;
 
     this.magicService.findAllCards(id, []).subscribe({
-      error: () => this.toastService.error('Error when listing packs!'),
-      next: (cards) => {
-        console.log(cards);
+      error: () => {
+        this.toastService.error('Error when listing packs!');
 
+        this.isLoading = false;
+      },
+      next: (cards) => {
         this.cards = cards;
 
         this.isLoading = false;

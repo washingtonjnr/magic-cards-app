@@ -91,10 +91,6 @@ export class MagicService extends ApiService {
           );
         }
       }),
-      catchError(error => {
-        console.error('Err:', error);
-        return of([]);
-      }),
     );
   }
 }

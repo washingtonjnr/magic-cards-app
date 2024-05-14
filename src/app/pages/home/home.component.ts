@@ -68,7 +68,7 @@ export class HomeComponent {
 
   ) {
     this.searchForm = new FormGroup({
-      name: new FormControl('promo', [Validators.minLength(3)]),
+      name: new FormControl('', [Validators.minLength(3)]),
       type: new FormControl('amonkhet', [Validators.required])
     });
   }
@@ -106,7 +106,6 @@ export class HomeComponent {
         this.isLoading = false;
       },
       next: ({ sets }) => {
-        console.log(sets)
         this.packs = sets;
 
         this.isLoading = false;
