@@ -24,7 +24,7 @@ Here you describe how to run your project locally
 
 Here you list all prerequisites necessary for running your project. For example:
 
-- [NodeJS]((https://nodejs.org/en/download)
+- [NodeJS](https://nodejs.org/en/download)
 - [Angular CLI](https://angular.io/cli)
 
 ### Development server
