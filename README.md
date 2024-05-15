@@ -1,10 +1,10 @@
 [TYPESCRIPT__BADGE]: https://img.shields.io/badge/typescript-D4FAFF?style=for-the-badge&logo=typescript
 [ANGULAR__BADGE]: https://img.shields.io/badge/Angular-red?style=for-the-badge&logo=angular
 
-<h1 align="center" style="font-weight: bold;">[Magic Packs] in Angular 💻</h1>
-
 ![angular][ANGULAR__BADGE]
 ![typescript][TYPESCRIPT__BADGE]
+
+<h1 align="center" style="font-weight: bold;">[Magic Packs]</h1>
 
 <p align="center">
     <img src="./.github/home.png" alt="Image Example" width="300px">
@@ -24,36 +24,27 @@ Here you describe how to run your project locally
 
 Here you list all prerequisites necessary for running your project. For example:
 
-- [NodeJS](https://github.com/)
-- [Git 2](https://github.com)
+- [NodeJS]((https://nodejs.org/en/download)
 - [Angular CLI](https://angular.io/cli)
 
-
-
-## Development server
-
+### Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
+### Code scaffolding
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Install depedencies
+### Install depedencies
 Run `npm i`.
 
-## Running
-
+### Running
 Run `npm start` to run the project.
 
-## Build
-
+### Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
+### Running unit tests
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
